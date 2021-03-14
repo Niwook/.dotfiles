@@ -9,63 +9,50 @@ Xft.lcdfilter: lcddefault
 
 XTerm*renderFont: true
 XTerm*faceName: xft:MesloLGS NF:size=12   
-XTerm*faceSize: 11
+XTerm*faceSize: 12
 XTerm*utf8: 2
 XTerm*locale: true
-
 XTerm.vt100.translations: #override \n\
   Ctrl <Key> j: smaller-vt-font() \n\
   Ctrl <Key> k: larger-vt-font()
-
-
 ! Every shell is a login shell by default (for inclusion of all necessary environment variables)
 XTerm*loginshell: true
-
-! I like a LOT of scrollback...
 XTerm*savelines: 16384
-
 ! double-click to select whole URLs :D
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+
+! ------------------------------------------------------------------------------
+! URXVT setup
+! Para actualizar escribir en consola: xrdb ~/.Xresources
+! ------------------------------------------------------------------------------
+!
 
 URxvt*imLocale: en_Es.UTF-8
 URxvt*termName: rxvt-unicode-256color
 URxvt*buffered: false
 URxvt.intensityStyles: false
-URxvt.font: xft:MesloLGS NF:size=12
+URxvt.font: xft:MesloLGS NF:size=12,\
+	    xft:Hack Nerd Font
 URxvt.saveLines: 2000
 URxvt.scrollBar: false
 URxvt.cursorColor: white
-! |- Si se presenta separación entre caracteres agregue, donde -1 es la cantidad de pixeles a disminuir
 URxvt.letterSpace:-1
 
 !! Extensions
-URxvt.perl-ext-common: default,matcher,resize-font,url-select,keyboard-select,clipboard
 URxvt.colorUL: #4682B4
-!! url-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
 URxvt.url-select.underline: true
-!! keyboard-select:
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
 !! resize-font
 URxvt.keysym.C-k:   font-size:increase
 URxvt.keysym.C-j:   font-size:decrease
-!! Matcher
-URxvt.url-launcher:	urxvt -e lynx -cfg=~/.lynx.cfg -lss=~/.lynx.lss
-URxvt.matcher.button: 1
 !!clipboard
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
 URxvt*depth: 32
 
-
-! Palenight Xresources palette
 !! COLORS
-
 URxvt*foreground:   #4EC3BA
-!!URxvt*background:   [95]#282a36
 URxvt*cursorColor:  #4EC3BA
-!!
 XTerm*foreground: #4EC3BA
 !!XTerm*background: #282a36
 XTerm*cursorColor: #4EC3BA
@@ -107,4 +94,20 @@ XTerm*cursorColor: #4EC3BA
 ! white
 *.color7:       #d0d0d0
 *.color15:      #f5f5f5
+
+! ------------------------------------------------------------------------------
+! ROFI setup
+! ------------------------------------------------------------------------------
+
+rofi.separator-style:   solid
+rofi.font:              MesloLGS NF 12
+rofi.color-enabled:     true
+rofi.padding:           50
+rofi.line-margin:       5
+rofi.lines:             10
+rofi.width:             720
+rofi.disable-history:   true
+rofi.modi:              keys,drun,window,run
+rofi.sidebar-mode:      true
+rofi.fullscreen:        false
 
