@@ -500,28 +500,28 @@ Editar el archivo
 ***
 
 #### INSTALAR ICONOS NUMIX
-git clone https://github.com/numixproject/numix-icon-theme-circle.git
-git clone https://github.com/numixproject/numix-icon-theme.git
-sudo mv numix-icon-theme-circle/Numix-Circle/ /usr/share/icons
-sudo mv numix-icon-theme-circle/Numix-Circle-Light /usr/share/icons
-sudo mv numix-icon-theme/Numix /usr/share/icons
-sudo mv numix-icon-theme/Numix-Light /usr/share/icons
-gtk-update-icon-cache /usr/share/icons/Numix-Circle/
-gtk-update-icon-cache /usr/share/icons/Numix-Circle-Light/
-gtk-update-icon-cache /usr/share/icons/Numix/
-gtk-update-icon-cache /usr/share/icons/Numix-Light/
+`git clone https://github.com/numixproject/numix-icon-theme-circle.git`
+`git clone https://github.com/numixproject/numix-icon-theme.git`
+`sudo mv numix-icon-theme-circle/Numix-Circle/ /usr/share/icons`
+`sudo mv numix-icon-theme-circle/Numix-Circle-Light /usr/share/icons`
+`sudo mv numix-icon-theme/Numix /usr/share/icons`
+`sudo mv numix-icon-theme/Numix-Light /usr/share/icons`
+`gtk-update-icon-cache /usr/share/icons/Numix-Circle/`
+`gtk-update-icon-cache /usr/share/icons/Numix-Circle-Light/`
+`gtk-update-icon-cache /usr/share/icons/Numix/`
+`gtk-update-icon-cache /usr/share/icons/Numix-Light/`
 ***
 
 #### INSTALAR NUMIX FOLDER
-git clone https://github.com/numixproject/numix-folders
-sudo cp -r ~/numix-folders /opt
-cd /opt/numix-folders
-sudo chmod +x /opt/numix-folders/numix-folders
-sudo nano /opt/numix-folders/numix-folders.desktop
+`git clone https://github.com/numixproject/numix-folders`
+`sudo cp -r ~/numix-folders /opt`
+`cd /opt/numix-folders`
+`sudo chmod +x /opt/numix-folders/numix-folders`
+`sudo nano /opt/numix-folders/numix-folders.desktop`
 sustituir Exec=numix-folders por:
 Exec=/opt/numix-folders/numix-folders
-sudo cp /opt/numix-folders/numix-folders.desktop /usr/share/applications
-sudo ln -s /opt/numix-folders/numix-folders /usr/bin/numix-folders
+`sudo cp /opt/numix-folders/numix-folders.desktop /usr/share/applications`
+`sudo ln -s /opt/numix-folders/numix-folders /usr/bin/numix-folders`
 Abrir con:
-sudo numix-folders
+`sudo numix-folders`
 ***
