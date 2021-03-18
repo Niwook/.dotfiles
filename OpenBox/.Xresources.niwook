@@ -1,0 +1,89 @@
+!! Colorscheme
+
+! special
+*.foreground: #93a1a1
+*.background: #141c21
+*.cursorColor: #afbfbf
+
+! black
+*.color0: #263640
+*.color8: #4a697d
+
+! red
+*.color1: #d12f2c
+*.color9: #fa3935
+
+! green
+*.color2: #819400
+*.color10: #a4bd00
+
+! yellow
+*.color3: #b08500
+*.color11: #d9a400
+
+! blue
+*.color4: #2587cc
+*.color12: #2ca2f5
+
+! magenta
+*.color5: #696ebf
+*.color13: #8086e8
+
+! cyan
+*.color6: #289c93
+*.color14: #33c5ba
+
+! white
+*.color7: #bfbaac
+*.color15: #fdf6e3
+
+! ------------------------------------------------------------------------------
+! URXVT setup
+! Para actualizar escribir en consola: xrdb ~/.Xresources
+! ------------------------------------------------------------------------------
+! – Apariencia de la ventana
+! |- Especificamos el titulo de la ventana, por default, urxvt
+URxvt.title:Consola
+! |- Agregamos un icono personalizado, el cual debe encontrarse en la direccion que especifiquemos NO WORK
+URxvt.iconFile:/usr/share/icons/Papirus/24x24/apps/utilities-terminal.svg
+! |- Eliminamos las barras de scroll (en lo personal no me gustan)
+URxvt.scrollBar:false
+! |- Agregamos transparencia NO WORK
+URxvt.depth: 50
+!URxvt.background:[80]#000000
+! |- Definimos el color principal (letras)
+URxvt.foreground:#4EC3BA
+! |- Definimos el color del cursor
+URxvt.cursorColor:#4EC3BA
+! |- Añadimos parpadeo al cursor
+URxvt.cursorBlink:true
+! |- Definimos el tipo de fuente a usar (para obtener una lista completa de fuentes disponibles en su sistema use «fc-list» en su consola).
+URxvt.font: xft:Source Code Variable:pixelsize=15
+! |- Si se presenta separación entre caracteres agregue, donde -1 es la cantidad de pixeles a disminuir
+URxvt.letterSpace:-1
+! |- Agregamos soporte para pestañas
+URxvt.perl-ext-commoni:default,tabbed
+! |- Definimos el color de fondo de las pestañas
+URxvt.tabbed.tab-bg:#000000
+! |- Definimos el color frontal de las pestañas
+URxvt.tabbed.tab-fg:#699000
+! |- Definimos el color de fondo de los separadores de pestañas
+URxvt.tabbed.tabbar-bg:#000000
+! |- Definimos el color frontal de los separadores de las pestañas
+URxvt.tabbed.tabbar-fg:#4E9A06
+
+! ------------------------------------------------------------------------------
+! ROFI setup
+! ------------------------------------------------------------------------------
+
+rofi.separator-style:   solid
+rofi.font:              Source Code Variable Bold 12
+rofi.color-enabled:     true
+rofi.padding:           50
+rofi.line-margin:       5
+rofi.lines:             10
+rofi.width:             720
+rofi.disable-history:   true
+rofi.modi:              keys,drun,window,run
+rofi.sidebar-mode:      true
+rofi.fullscreen:        false
