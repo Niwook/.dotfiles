@@ -1,0 +1,18 @@
+[Desktop Entry]
+Version=1.0
+Name=Default Applications
+Name[es]=Apagar
+Comment=Associate preferred applications with MIME types
+Comment[es]=Apagar sistema
+Keywords=file;type;extension;association;open with;web browser;mail reader;file manager;terminal emulator;
+Keywords[es]=archivo;tipo;extensión;asociación;abrir con;navegador web;lector de correo;administrador de archivos;emulador de terminal;
+Exec=xfce4-session-logout --halt --fast
+Icon=system-devices-panel
+Terminal=false
+Type=Application
+Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-SystemSettings;
+StartupNotify=true
+OnlyShowIn=XFCE;
+X-XfcePluggable=true
+X-XFCE-Source=file:///usr/share/applications/xfce4-mime-settings.desktop
+Path=

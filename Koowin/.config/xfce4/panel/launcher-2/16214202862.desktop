@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=Settings Manager
+Name[es]=Reiniciar
+Comment=Graphical Settings Manager for Xfce
+Comment[es]=Reiniciar sistema
+Keywords=control;panel;center;system;settings;personalize;hardware;
+Keywords[es]=control;panel;centro;sistema;ajustes;personalización;hardware
+Exec=xfce4-session-logout --reboot --fast
+Icon=system-devices-panel-information
+Terminal=false
+Type=Application
+Categories=X-XFCE;Settings;DesktopSettings;
+OnlyShowIn=XFCE;
+X-XfceSettingsManagerHidden=true
+X-XFCE-Source=file:///usr/share/applications/xfce-settings-manager.desktop
+Path=
+StartupNotify=false

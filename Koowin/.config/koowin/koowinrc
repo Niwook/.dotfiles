@@ -1,0 +1,119 @@
+--[[
+#=====================================================================================
+#                               
+# Date    : 09 junio 2021
+# Name    : Koowin
+# Author  : Niwook
+# Editor  : Niwook Koowin
+# Version : v0.01
+# License : Distributed under the terms of GNU GPL version 2 or later
+#=====================================================================================
+]]
+
+
+conky.config = {
+
+-------------------------------------
+--  Generic Settings
+-------------------------------------
+background = true,
+update_interval = 1,
+double_buffer = true,
+no_buffers = true,
+imlib_cache_size = 0,
+
+draw_shades = false,
+default_shade_color = 'black',
+draw_outline = false,
+default_outline_color = 'black',
+
+-------------------------------------
+--  Window Specifications
+-------------------------------------
+gap_x = 0,
+gap_y = 0,
+
+alignment = 'middle_middle',
+
+-- minimum_size = 300,
+maximum_width = 300,
+
+own_window = true,
+own_window_type = 'desktop',
+own_window_transparent = true,
+own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
+own_window_argb_visual = true,
+own_window_argb_value = 0,
+
+own_window_colour = '#000000',
+own_window_class = 'Conky',
+own_window_title = 'Koowin Conky',
+
+
+-------------------------------------
+--  Text Settings
+-------------------------------------
+use_xft = true,
+xftalpha = 1,
+font = 'Roboto:size=10',
+uppercase = false,
+override_utf8_locale = true,
+text_buffer_size = 1024,
+
+-------------------------------------
+--  Color Scheme
+-------------------------------------
+default_color = '#FFFFFF',
+
+default_shade_color = '#000000',
+default_outline_color = '#000000',
+color1 = '#FFFFFF',
+color2 = '#75F5FF',
+color3 = '#FFCEEF',
+color4 = '#C0F8F8',
+
+-------------------------------------
+--  Borders
+-------------------------------------
+draw_borders = false,
+stippled_borders = 0,
+-- border_margin = 5,
+border_width = 1,
+draw_graph_borders = true,
+
+-------------------------------------
+--  Miscellaneous
+-------------------------------------
+use_spacer = 'none',
+total_run_times = 0,
+
+cpu_avg_samples = 2,
+net_avg_samples = 2,
+short_units = true,
+
+}
+
+---------------------------------------------------
+---------------------------------------------------
+conky.text = [[
+\
+\
+\
+\
+${alignc}${voffset}${color1}${font Roboto:size=19}${execi 60 date +"%A" | sed 's/.\{1\}/& /g;s/ $//'}
+${image ~/.config/conky/koowin/line.png -p 0,40 -s 250x3}
+${image ~/.config/conky/koowin/Tri.png -p 70,55 -s 24x14}
+${alignc}${voffset -25}${color1}${font Roboto:bold:size=60}${execi 10 date +"%^H" | sed 's/.\{1\}/& /g;s/ $//'}${font Roboto:Light:size=1}
+${alignc}${voffset}${color1}${font Roboto:bold:size=60}${execi 10 date +"%^M" | sed 's/.\{1\}/& /g;s/ $//'}${font Roboto:Light:size=1}
+${alignc}${voffset}${color2}${font Roboto:bold:size=60}${execi 60 date +"%^d" | sed 's/.\{1\}/& /g;s/ $//'}${font Roboto:Light:size=1}
+${alignc}${voffset}${color2}${font Roboto:bold:size=60}${execi 60 date +"%^m" | sed 's/.\{1\}/& /g;s/ $//'}${font Roboto:Light:size=1}
+${execi 300 ~/.config/conky/koowin/scripts/weather.sh}
+${image ~/.config/conky/koowin/Tri2.png -p 70,400 -s 24x14}
+${image ~/.config/conky/koowin/line.png -p 0,580 -s 250x3}
+${alignc}${voffset 50}${color4}${font Roboto:bold:size=19}${execi 100 cat ~/.cache/weather.json | jq '.main.temp' | sed 's/.\{1\}/& /g;s/ $//'} °c${font Roboto:Light:size=1}
+${alignc}${voffset 30}${color1}${font Roboto:pixelsize=15} uptime: ${color1}$uptime${color}
+${alignc}${voffset}${color1}${font Roboto:pixelsize=15}${alignc} root: ${color2}${fs_used /}${color1} / ${color0}${fs_size /}${color} 
+${alignc}${voffset}${color1}${font Roboto:pixelsize=15}${alignc} home: ${color2}${fs_used /home}${color1} / ${color0}${fs_size /home}${color}
+${alignc}${voffset}${color} men ram: ${color2}$mem ${color1} / $memmax${color}
+
+]]

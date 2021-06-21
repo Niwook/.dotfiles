@@ -1,0 +1,25 @@
+[Desktop Entry]
+Type=Application
+Name=Scribus
+Comment=Page Layout and Publication
+Comment[es]=Publicación de escritorio
+GenericName=Page Layout (Development)
+GenericName[es]=Publicación de escritorio
+TryExec=scribus
+Exec=scribus %f
+Icon=scribus
+Terminal=false
+MimeType=application/vnd.scribus;
+Categories=Qt;Graphics;Publishing;
+StartupWMClass=scribus
+DocPath=scribus
+StartupNotify=false
+X-AppInstall-Package=scribus
+X-AppInstall-Section=main
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-XFCE-Source=file:///usr/share/applications/scribus.desktop
+
+[X-Property::X-KDE-NativeExtension]
+Type=QString
+Value=.sla

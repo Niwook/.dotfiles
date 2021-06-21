@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="hide-inactive.svg"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:zoom="21.125"
+     inkscape:cx="31.053254"
+     inkscape:cy="16.497041"
+     inkscape:window-width="1884"
+     inkscape:window-height="1048"
+     inkscape:window-x="36"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12"
+     showborder="false">
+    <sodipodi:guide
+       position="9.4443272,22.095288"
+       orientation="0,-1"
+       id="guide827" />
+    <sodipodi:guide
+       position="9.4443272,22.095288"
+       orientation="1,0"
+       id="guide829" />
+  </sodipodi:namedview>
+  <rect
+     width="32"
+     height="31"
+     fill="#323f4e"
+     id="rect2"
+     x="0"
+     y="1"
+     style="stroke-width:0.984251" />
+  <rect
+     width="32"
+     height="1"
+     fill="#F8F8F2"
+     fill-opacity="0.1"
+     id="rect4"
+     style="fill:#79f8f3;fill-opacity:1" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#5adecd;stroke-width:4.39107;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 15.282332,18.409469 -3.642628,-6.30922 h 7.285807 l -3.643241,6.310282"
+     id="path4967"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccc" />
+</svg>

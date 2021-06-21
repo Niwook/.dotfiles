@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Enve
+Comment=Animation SVG 2D
+Exec=/home/niwook/Niwook/Animation/software/enve-ca94388-x86_64.AppImage
+Icon=enve
+Path=
+Terminal=false
+StartupNotify=false
