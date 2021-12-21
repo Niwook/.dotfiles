@@ -2,7 +2,15 @@ jue 25 nov 2021 10:13:46
 
 # INSTALACIÓN DE ENDEAVOUROS CON XFCE
 
-### INSTALAR YAY SI NO ESTÁ INSTALADO
+## CONOCER MD5 Y SHA
+```
+md5sum filename
+shasum filename
+shasum -a 256 filename
+shasum -a 512 filename
+```
+
+## INSTALAR YAY SI NO ESTÁ INSTALADO
 `sudo pacman -S yay`
 Si no funciona:
 `sudo pacman -S git`
@@ -22,28 +30,26 @@ Si no funciona:
 `sudo systemctl reboot`
 ***
 
-# MODIFICAR EL GRUB PARA QUE CORRA OS-PROBER
-## INSTALAR OS-PROBER
-`sudo pacman -S --needed os-prober`
 ## MODIFICAR EL GRUB
+### INSTALAR OS-PROBER
+`sudo pacman -S --needed os-prober`
+### MODIFICAR EL GRUB
 `sudo nano /etc/default/grub`
-## Cambiar por esto:
+### MODIFIRCAR LA VARIABLE:
 `GRUB_DISABLE_OS_PROBER=false`
-## REGENERAR EL GRUB
+### REGENERAR EL GRUB
 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
-***
-
 ### MOSTRAR INFORMACIÓN CUANDO SE INICIA EL SISTEMA
 `sudo nano /etc/default/grub`
 Quitar **quiet** de GRUB_CMDLINE_LINUX_DEFAULT:
 `sudo grub-mkconfig -o /boot/grub/grub.cfg`
 ***
 
-# INSTALAR GNOME-DISK-UTILITY
+## INSTALAR GNOME-DISK-UTILITY
 `sudo pacman -S gnome-disk-utility`
 ***
 
-### LIMPIAR LOS LOSG DE SYSTEMD JOURNAL DE MÁS DE 7 DÍAS
+## LIMPIAR LOS LOSG DE SYSTEMD JOURNAL DE MÁS DE 7 DÍAS
 Listar las tareas que tenemos:
 `crontab -l`
 Crear una tarea nueva:
@@ -52,7 +58,7 @@ Rellenar con:
 `00 16 * * 4 sudo journalctl --vacuum-time=7d`
 ***
 
-### CREAR GRUPO DE ADMINISTRACIÓN
+## CREAR GRUPO DE ADMINISTRACIÓN
 `sudo groupadd gniwook`
 `sudo usermod -g gniwook niwook`
 `sudo nano /etc/sudoers`
@@ -60,7 +66,7 @@ Añadir al final del archivo:
 `niwook ALL=(ALL) NOPASSWD: ALL`
 ***
 
-### PERSONALIZAR CARPETAS DEL HOME
+## PERSONALIZAR CARPETAS DEL HOME
 `LC_ALL=C xdg-user-dirs-update --force`
 `xdg-user-dirs-update`
 `echo "enabled=False" > ~/.config/user-dirs.conf`
@@ -70,7 +76,7 @@ Eliminar carpetas inutilizadas.
 Crear la carpeta **Niwook** en el HOME.
 ***
 
-#### INSTALAR REDSHIFT
+## INSTALAR REDSHIFT
 `sudo pacman -S redshift`
 - Crear el archivo: **~/.config/redshift.conf**
 - Copiar esta configuración:
@@ -134,21 +140,21 @@ lon=-2.7770
 ```
 ***
 
-### HABILITAR TRIM PARA EL SSD
+## HABILITAR TRIM PARA EL SSD
 `sudo systemctl enable fstrim.timer`
 `sudo systemctl start fstrim.timer`
 Verificar con:
 `sudo fstrim -v /`
 ***
 
-### MONTAR AUTOMÁTICAMENTE LAS PARTICIONES Y DARLES PERMISO DE ESCRITURA
+## MONTAR AUTOMÁTICAMENTE LAS PARTICIONES Y DARLES PERMISO DE ESCRITURA
 - Abrir la aplicación "Discos" y "Editar las opciones de montaje..."
 - Identificar como LABEL=xxx. Esto cambia el Punto de montaje a /mnt/xxx
 - Reiniciar la computadora
 `sudo chmod 667 /mnt/xxx` (usar si el sistema no lo hace automáticamente)
 ***
 
-### REPARAR LA CONEXIÓN A INTERNET DESPUÉS DE ACTUALIZAR
+## REPARAR LA CONEXIÓN A INTERNET DESPUÉS DE ACTUALIZAR
 `sudo nano '/usr/lib/modprobe.d/r8168.conf'`
 Comentar la línea agregando ‘#’
 #blacklist r8169
@@ -161,24 +167,18 @@ Arreglar permanentemente, desinstalar **r8168**:
 `sudo pacman -R r8168`
 ***
 
-### SOLUCIONAR DESAJUSTE DE HORA ENTRE LINUX Y WINDOWS
+## AJUSTAR HORA ENTRE LINUX Y WINDOWS
 `sudo timedatectl set-local-rtc 1`
 ***
 
-### ACTIVAR CORTAFUEGOS GUFW AUTOMÁTICAMENTE AL INICIAR EL SISTEMA
+## ACTIVAR CORTAFUEGOS GUFW AUTOMÁTICAMENTE AL INICIAR EL SISTEMA
 `sudo systemctl start ufw.service`
 `sudo systemctl enable ufw.service`
 `systemctl enable --now ufw.service`
 `sudo ufw status`
 ***
 
-### INSTALAR INKSCAPE Y GIMP
-`sudo pacman -S inkscape`
-`sudo pacman -S gimp`
-`sudo pacman -S gimp-plugin-gmic`
-***
-
-### ACTIVAR NUMLOCK
+## ACTIVAR NUMLOCK
 En el archivo **~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboards.xml**,
 asegúrese de que los siguientes valores estén establecidos como verdadero (true):
 
@@ -186,7 +186,7 @@ asegúrese de que los siguientes valores estén establecidos como verdadero (tru
 <property name="RestoreNumlock" type="bool" value="true"/>
 ***
 
-### INSTALAR ICONOS NUMIX
+## INSTALAR ICONOS NUMIX
 ```
 git clone https://github.com/numixproject/numix-icon-theme-circle.git
 git clone https://github.com/numixproject/numix-icon-theme.git
@@ -203,7 +203,7 @@ gtk-update-icon-cache /usr/share/icons/Numix-Light/
 ```
 ***
 
-### INSTALAR NUMIX FOLDER
+## INSTALAR NUMIX FOLDER
 `git clone https://github.com/numixproject/numix-folders`
 `sudo cp -r ~/numix-folders /opt`
 `cd /opt/numix-folders`
@@ -216,7 +216,7 @@ sustituir **Exec=numix-folders** por:
 Abrir con:
 `sudo numix-folders`
 
-### PERSONALIZAR Y OPTIMIZAR FIREFOX
+## PERSONALIZAR Y OPTIMIZAR FIREFOX
 - Sincronización
 - Idioma
 - Iconos
@@ -224,23 +224,26 @@ Abrir con:
 - Certificados Digitales
 ***
 
-### INSTALAR FUENTES
+## INSTALAR FUENTES
 Copiar la carpeta fonts en: **~/.local/share/fonts** #Crearla si no existe
 Desactivar las fuentes noto sans de idiomas que no uso.
 ***
 
-### CREAR UN .FACE PARA XFCE
+## CREAR UN .FACE PARA XFCE
 Crear una imagen de 200x200px
 Darle una resolución de entre 90px y 100px
 Guadarla en /home como .face **/home/.face**
 ***
 
-### LIMPIAR EL ARRANQUE DEL F12
+## LIMPIAR EL ARRANQUE DEL F12
 `sudo efibootmgr`
 `sudo efibootmgr -b 0003 -B` Donde 0003 es lo que queremos eliminar
 ***
 
-### INSTALAR SOFTWARE
+## INSTALAR Y DESINSTALAR SOFTWARE
+`sudo pacman -S inkscape`
+`sudo pacman -S gimp`
+`sudo pacman -S gimp-plugin-gmic`
 `sudo pacman -S gpick`
 `sudo pacman -S htop`
 `sudo pacman -S vlc`
@@ -255,11 +258,13 @@ Guadarla en /home como .face **/home/.face**
     `gtk3-widget-factory`
 `sudo pacman -S gnome-calculator `
 `sudo pacman -R galculator`
+`sudo pacman -S libreoffice-fresh libreoffice-fresh-es`
+`sudo pacman -S krita`
 
 
 ***
 
-### INSTALAR TEMA HIPSTER
+## INSTALAR TEMA HIPSTER
 - Abrir Visual Studio Code.
 - Ir al panel de extensiones.
 - Pulsar sobre los tres puntos de la parte superior derecha del panel.
@@ -268,7 +273,7 @@ Guadarla en /home como .face **/home/.face**
 - Pulsar sobre configurar tema y elegir hipster del menú.
 ***
 
-### REPARAR APPIMAGE DE ENVE O CUALQUIERA QUE FALLE
+## REPARAR APPIMAGE DE ENVE O CUALQUIERA QUE FALLE
 <https://www.maoxuner.cn/post/2021/09/navicat-with-glib2-70/>
 
 1. Si appimagentool no está instalado, instalarlo desde yay:
@@ -301,7 +306,7 @@ rmdir src
 `yay -S libffi7`
 ***
 
-### INSTALAR FONTMANAGER
+## INSTALAR FONTMANAGER
 `yay -S font-manager`
 También se puede instalar desde git:
 `sudo git clone https://aur.archlinux.org/font-manager.git`
@@ -311,17 +316,16 @@ También se puede instalar desde git:
 `sudo chmod 667 font-manager`
 ***
 
-
-
-
-
+## CAMBIAR PROPIETARIO Y GRUPO DE LA CARPETA DEL SERVIDOR
+`cd /opt/`
+`sudo chown -R niwook:gniwook lampp`
 
 
 ------------------- NO HECHO AÚN -----------------------
 
 
 
-### CONFIGURAR LA GESTIÓN DE COLOR EN INKSCAPE
+## CONFIGURAR LA GESTIÓN DE COLOR EN INKSCAPE
 Abrir Thunar como root:
 `gksudo thunar`
 Copiar los perfiles de: /mnt/LINUX1/RECURSOS/Resources_Perfiles_Color/color
@@ -345,7 +349,7 @@ Proposito de conversion del dispositivo: colorimetria relativa
 Compensacion de punto negro: checked
 ***
 
-### CONFIGURAR FILEZILLA
+## CONFIGURAR FILEZILLA
 Protocolo: FTP-Protocolo de Transferencia de Archivos
 Servidor: ftp.cluster015.hosting.ovh.net
 Puerto: 21
@@ -356,7 +360,7 @@ Contraseña: Está en Bitwarden
 Aceptar cuando salga la ventana de que no es seguro
 ***
 
-#### INSTALAR LA SHELL ZSH
+## INSTALAR LA SHELL ZSH
 <https://www.youtube.com/watch?v=A6xWiqOpulI>
 <https://www.youtube.com/watch?v=dg1tK50UVGI&t=690s>
 `sudo pacman -S zsh zsh-completions`
@@ -379,11 +383,11 @@ promptinit
 `prompt fade 'blue'` por ejemplo.
 *** 
 
-#### INSTALAR CURL GIT WGET
+## INSTALAR CURL GIT WGET
 `sudo pacman -S curl git wget`
 ***
 
-#### INSTALAR OH-MY-ZSH FRAMEWORK
+## INSTALAR OH-MY-ZSH FRAMEWORK
 `sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
 `Y`
 - Actualizar el framework:
@@ -426,7 +430,7 @@ plugins=(git _archlinux_ _zsh-syntax-highlighting_ _zsh-autosuggestions_)
 `source .zshrc`
 ***
 
-#### INSTALAR LA POWERLEVEL10K
+## INSTALAR LA POWERLEVEL10K
 - Instalar las fonts necesarias (yain es uno de los alias que usa el plugin **archlinux**:
 `sudo pacman -S ttf-font-awesome`
 `yain nerd-fonts-noto-sans-mono`
@@ -448,55 +452,7 @@ y-y-y-y-3-1-2-1-1-2-1-2-2-1-n-1-y-
 `git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull`
 ***
 
-#### CONFIGURAR EL RENDERIZADO DE LAS FUENTES
-1. Crear el archivo local.conf en /etc/fonts:
-`cd /etc/fonts`
-`sudo vim local.conf`
-2. Añadir dentro lo diguiente:
-```
-<?xml version="1.0"?>
-<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
-<fontconfig>
-  <match target="font">
-  <edit name="autohint" mode="assign">
-    <bool>true</bool>
-  </edit>
-  <edit name="hinting" mode="assign">
-    <bool>true</bool>
-  </edit>
-  <edit mode="assign" name="hintstyle">
-    <const>hintslight</const>
-  </edit>
-  <edit mode="assign" name="lcdfilter">
-   <const>lcddefault</const>
- </edit>
-</match>
-</fontconfig>
-```
-3. Añadir  .Xresources lo siguiente:
-```
-Xft.dpi: 96
-Xft.antialias: true
-Xft.hinting: true
-Xft.rgba: rgb
-Xft.autohint: true
-Xft.hintstyle: hintfull
-Xft.lcdfilter: lcddefault
-```
-4. Correr en la terminal_
-`xrdb -merge ~/.Xresources`
-
-Ver:
-<https://wiki.manjaro.org/index.php/Improve_Font_Rendering>
-<https://wiki.archlinux.org/index.php/Font_configuration>
-***
-
-#### ADMINISTRAR NUESTROS ARCHIVOS DE CONFIGURACIÓN (DOTFILES) CON GNU STOW
-<https://www.youtube.com/watch?v=HCIftbDYs10>
-`pacin stow`
-***
-
-#### INSTALAR LSD (UN LS CON VITAMINAS)
+## INSTALAR LSD (UN LS CON VITAMINAS)
 `sudo pacman -S lsd`
 Añadir los siguientes alias a la zsh:
 `alias ls='lsd'`
@@ -507,7 +463,7 @@ Añadir los siguientes alias a la zsh:
 `source .zshrc`
 ***
 
-#### INSTALAR BAT (UN CAT CON VITAMINAS)
+## INSTALAR BAT (UN CAT CON VITAMINAS)
 `pacman -S bat`
 Añadir EL siguiente alias a la zsh:
 `alias cat='bat'`
@@ -516,7 +472,7 @@ Añadir EL siguiente alias a la zsh:
 `source .zshrc`
 ***
 
-#### INSTALAR FZF
+## INSTALAR FZF
 ```
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
